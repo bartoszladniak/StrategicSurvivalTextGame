@@ -1,4 +1,3 @@
-from strings import *
 from termcolor import colored
 
 

@@ -11,8 +11,8 @@ stats_food = 50
 
 def print_stats():
     print(colored("HEALTH:","green"), colored(stats_health,"yellow"),
-          colored("FOOD:","green"), colored(stats_food,"yellow"),
-          colored("ENERGY:","green"), colored(stats_energy,"yellow"))
+          colored("ENERGY:","green"), colored(stats_energy,"yellow"),
+          colored("FOOD:","green"), colored(stats_food,"yellow"))
 
 
 class Activity:
