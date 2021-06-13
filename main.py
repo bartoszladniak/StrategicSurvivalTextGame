@@ -100,10 +100,9 @@ def start_game(n):
         cls()
         one_night()
         cls()
-        if a.stats_health == 0:
+        if a.stats_health <= 0:
             print(colored("Umarłeś. Życzymy powodzenia następnym razem","red"))
             break
 
 if __name__ == "__main__":
-    print("...")
     start_game(30)
