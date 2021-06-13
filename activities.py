@@ -30,10 +30,10 @@ class Activity:
 
     def print_activity(self):
         print(self.description)
-        print("    [ ", self.success_rate * 100, "% ]",
-              "[ ", self.success_gain_health, self.success_gain_energy, self.success_gain_food, " ]")
-        print("    [ ", 100 - self.success_rate * 100, "% ]",
-              "[ ", self.failure_gain_health, self.failure_gain_energy, self.failure_gain_food, " ]")
+        print("    [ ", colored(self.success_rate * 100, "magenta"), "% ]",
+              "[ Health: ", self.success_gain_health, " Energy: ", self.success_gain_energy, " Food: ", self.success_gain_food, " ]")
+        print("    [ ", colored(100 - self.success_rate * 100,"magenta"), "% ]",
+              "[ Health: ", self.failure_gain_health, " Energy: ", self.failure_gain_energy, " Food: ", self.failure_gain_food, " ]")
 
     def apply(self):
         global stats_food, stats_energy, stats_health
@@ -81,7 +81,7 @@ food_list.append(Activity(description = Food.FOOD_BERRIES.value, success_rate=0.
 food_list.append(Activity(description = Food.FOOD_COCONUT.value, success_rate=0.7, success_gain_energy=-30,
                           success_gain_food=30, failure_gain_energy=-30, failure_gain_health=-50))
 food_list.append(Activity(description = Food.FOOD_ALOE.value, success_rate=0.5, success_gain_health=10,
-                          success_gain_energy=-10, failure_gain_energy=-10))
+                          success_gain_energy=-10, failure_gain_health=-10, failure_gain_energy=-10))
 food_list.append(Activity(description = Food.FOOD_NONE.value, success_rate=1))
 
 #Rest
@@ -107,22 +107,36 @@ hunting_list.append(
         description=Hunt.FOOD_RABBIT.value,
         success_rate=0.3,
         success_gain_energy=-50,
-        success_gain_health=-15,
+        success_gain_health=-5,
         success_gain_food=30,
         failure_gain_energy=-50,
         failure_gain_health=-30,
         failure_gain_food=0
     )
 )
+
+hunting_list.append(
+    Activity(
+        description=Hunt.FOOD_BOAR.value,
+        success_rate=0.3,
+        success_gain_energy=-50,
+        success_gain_health=-40,
+        success_gain_food=40,
+        failure_gain_energy=-50,
+        failure_gain_health=-50,
+        failure_gain_food=0
+    )
+)
+
 hunting_list.append(
     Activity(
         description=Hunt.FOOD_BEAR.value,
-        success_rate=0.5,
+        success_rate=0.2,
         success_gain_energy=-50,
         success_gain_health=-50,
         success_gain_food=70,
         failure_gain_energy=-50,
-        failure_gain_health=-70,
+        failure_gain_health=-80,
         failure_gain_food=0
     )
 )
